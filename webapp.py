@@ -1,6 +1,6 @@
 import os
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime
 from flask import Flask, request, abort, jsonify , render_template
 
 def temp_token():
@@ -25,7 +25,7 @@ app = Flask(__name__)
 def get_token_webhook():
     rootLogger.info(request.remote_addr + "on method : " + request.method)
     if request.method == 'GET':
-        return render_template('token.html',get_token=WEBHOOK_VERIFY_TOKEN , times=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        return render_template('token.html',get_token=WEBHOOK_VERIFY_TOKEN , times=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     else:
         abort(400)
 
