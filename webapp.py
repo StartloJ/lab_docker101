@@ -12,7 +12,7 @@ logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelnam
 rootLogger = logging.getLogger()
 rootLogger.setLevel(logging.DEBUG)
 
-consoleHandler = logging.StreamHandler()
+consoleHandler = logging.FileHandler('event.log')
 consoleHandler.setFormatter(logFormatter)
 rootLogger.addHandler(consoleHandler)
 
